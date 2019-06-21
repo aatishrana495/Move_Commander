@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   roslib
   std_msgs
+  hammerhead_control
 )
 
 find_package(Qt4 REQUIRED COMPONENTS

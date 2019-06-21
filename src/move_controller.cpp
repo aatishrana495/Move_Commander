@@ -2,9 +2,17 @@
 #include <QApplication>
 
 int main(int argc, char *argv[]) {
+  ros::init(argc, argv, "move_commander");
+  ros::NodeHandle nh;
   QApplication a(argc, argv);
-  MoveCommander w;
+  MoveCommander w(nh);
   w.show();
+  ros::Rate rate(30);
+  while (ros::ok() && w.isVisible()) {
+    ros::spinOnce();
+    rate.sleep();
+    a.processEvents();
+  }
 
-  return a.exec();
+  return 0;
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>785</width>
-    <height>679</height>
+    <width>617</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="title_label">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -25,6 +25,18 @@
       <width>461</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>461</width>
+      <height>71</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>461</width>
+      <height>71</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">font-size:32pt;
@@ -40,11 +52,35 @@ background-color: #0B0B76</string>
      <rect>
       <x>20</x>
       <y>140</y>
-      <width>331</width>
+      <width>345</width>
       <height>201</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <item row="6" column="2">
+      <widget class="QTextEdit" name="pitch_speed">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QTextEdit" name="yaw_position">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QTextEdit" name="surge_time">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+      </widget>
+     </item>
      <item row="5" column="0">
       <widget class="QLabel" name="label_6">
        <property name="styleSheet">
@@ -64,13 +100,6 @@ background-color: #DCDCE3</string>
        </property>
        <property name="text">
         <string>Sway</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QTextBrowser" name="textBrowser">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
        </property>
       </widget>
      </item>
@@ -129,13 +158,6 @@ background-color: #DCDCE3</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QTextBrowser" name="textBrowser_2">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="3">
       <widget class="QLabel" name="label_11">
        <property name="styleSheet">
@@ -170,114 +192,123 @@ background-color: #DCDCE3</string>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QTextEdit" name="textEdit">
+      <widget class="QTextEdit" name="surge_position">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QTextEdit" name="textEdit_2">
+      <widget class="QTextEdit" name="surge_speed">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="3">
-      <widget class="QTextEdit" name="textEdit_3">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QTextEdit" name="textEdit_4">
+      <widget class="QTextEdit" name="sway_position">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="3" column="2">
-      <widget class="QTextEdit" name="textEdit_5">
+      <widget class="QTextEdit" name="sway_speed">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="3" column="3">
-      <widget class="QTextEdit" name="textEdit_6">
+      <widget class="QTextEdit" name="sway_time">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
-      <widget class="QTextBrowser" name="textBrowser_3">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <widget class="QTextBrowser" name="textBrowser_4">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="4" column="2">
-      <widget class="QTextEdit" name="textEdit_7">
+      <widget class="QTextEdit" name="heave_speed">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="4" column="3">
-      <widget class="QTextEdit" name="textEdit_8">
+      <widget class="QTextEdit" name="heave_time">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="5" column="2">
-      <widget class="QTextEdit" name="textEdit_9">
+      <widget class="QTextEdit" name="yaw_speed">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="5" column="3">
-      <widget class="QTextEdit" name="textEdit_10">
+      <widget class="QTextEdit" name="yaw_time">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="2">
-      <widget class="QTextEdit" name="textEdit_11">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="6" column="3">
-      <widget class="QTextEdit" name="textEdit_12">
+      <widget class="QTextEdit" name="pitch_time">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="7" column="2">
-      <widget class="QTextEdit" name="textEdit_13">
+      <widget class="QTextEdit" name="roll_speed">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
      <item row="7" column="3">
-      <widget class="QTextEdit" name="textEdit_14">
+      <widget class="QTextEdit" name="roll_time">
        <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QTextEdit" name="heave_position">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QTextEdit" name="pitch_position">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QTextEdit" name="roll_position">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
       </widget>
      </item>
@@ -294,7 +325,7 @@ background-color: #DCDCE3</string>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QRadioButton" name="radioButton_3">
+      <widget class="QRadioButton" name="surface_mode_rb">
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 0);
 background-color: #DCDCE3</string>
@@ -305,7 +336,7 @@ background-color: #DCDCE3</string>
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="radioButton_2">
+      <widget class="QRadioButton" name="hover_mode_rb">
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 0);
 background-color: #DCDCE3</string>
@@ -316,7 +347,7 @@ background-color: #DCDCE3</string>
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="radioButton">
+      <widget class="QRadioButton" name="movement_mode_rb">
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 0);
 background-color: #DCDCE3</string>
@@ -339,7 +370,7 @@ background-color: #DCDCE3</string>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="addCmd_button">
        <property name="text">
         <string>Add Command</string>
        </property>
@@ -350,7 +381,7 @@ background-color: #DCDCE3</string>
    <widget class="QLabel" name="logo_label">
     <property name="geometry">
      <rect>
-      <x>660</x>
+      <x>490</x>
       <y>10</y>
       <width>111</width>
       <height>101</height>
@@ -363,99 +394,10 @@ background-color: #DCDCE3</string>
      <string>TextLabel</string>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>160</y>
-      <width>21</width>
-      <height>191</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QRadioButton" name="radioButton_4">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgba(255, 255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_5">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_6">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_7">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_8">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_9">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QLabel" name="label_12">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>140</y>
-      <width>71</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);
-background-color: #DCDCE3</string>
-    </property>
-    <property name="text">
-     <string>Max timout</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="gridLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>370</x>
       <y>140</y>
       <width>91</width>
       <height>201</height>
@@ -480,7 +422,7 @@ background-color: #DCDCE3</string>
         <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>-30</string>
        </property>
       </widget>
      </item>
@@ -490,7 +432,7 @@ background-color: #DCDCE3</string>
         <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>-5</string>
        </property>
       </widget>
      </item>
@@ -500,7 +442,7 @@ background-color: #DCDCE3</string>
         <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>-5</string>
        </property>
       </widget>
      </item>
@@ -510,7 +452,7 @@ background-color: #DCDCE3</string>
         <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>-0.1</string>
        </property>
       </widget>
      </item>
@@ -524,40 +466,8 @@ background-color: #DCDCE3</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_14">
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);
-background-color: #DCDCE3</string>
-       </property>
-       <property name="text">
-        <string>MIN</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label_13">
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);
-background-color: #DCDCE3</string>
-       </property>
-       <property name="text">
-        <string>MAX</string>
-       </property>
-      </widget>
-     </item>
      <item row="6" column="0">
       <widget class="QLabel" name="label_20">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
-       </property>
-       <property name="text">
-        <string>0</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="label_21">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
        </property>
@@ -572,7 +482,17 @@ background-color: #DCDCE3</string>
         <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>5</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_21">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
+       </property>
+       <property name="text">
+        <string>5</string>
        </property>
       </widget>
      </item>
@@ -582,7 +502,7 @@ background-color: #DCDCE3</string>
         <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>0.1</string>
        </property>
       </widget>
      </item>
@@ -592,7 +512,7 @@ background-color: #DCDCE3</string>
         <string notr="true">background-color: rgb(255, 255, 255, 0);</string>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>30</string>
        </property>
       </widget>
      </item>
@@ -616,6 +536,28 @@ background-color: #DCDCE3</string>
        </property>
       </widget>
      </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_13">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: #DCDCE3</string>
+       </property>
+       <property name="text">
+        <string>MAX</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_14">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: #DCDCE3</string>
+       </property>
+       <property name="text">
+        <string>MIN</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_3">
@@ -629,7 +571,7 @@ background-color: #DCDCE3</string>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="QRadioButton" name="radioButton_10">
+      <widget class="QRadioButton" name="surface_endmode_rb">
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 0);
 background-color: #fff</string>
@@ -640,7 +582,7 @@ background-color: #fff</string>
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="radioButton_11">
+      <widget class="QRadioButton" name="hover_endmode_rb">
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 0);
 background-color: #fff</string>
@@ -651,7 +593,7 @@ background-color: #fff</string>
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="radioButton_12">
+      <widget class="QRadioButton" name="movement_endmode_rb">
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 0);
 background-color: #fff</string>
@@ -676,13 +618,39 @@ background-color: #fff</string>
      <string>End Command Mode</string>
     </property>
    </widget>
+   <widget class="QRadioButton" name="wait_max_timeout">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>220</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wait for max timeout</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="isAbsolute">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>240</y>
+      <width>100</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>is Absolute</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>785</width>
+     <width>617</width>
      <height>19</height>
     </rect>
    </property>
