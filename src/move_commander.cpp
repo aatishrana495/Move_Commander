@@ -7,28 +7,7 @@ MoveCommander::MoveCommander(ros::NodeHandle _nh, QWidget *parent)
   logo.load(LOGO_PATH.c_str());
   int h = ui->logo_label->height(), w = ui->logo_label->width();
   ui->logo_label->setPixmap(logo.scaled(w, h, Qt::KeepAspectRatio));
-
-  ui->surge_position->setText("0");
-  ui->sway_position->setText("0");
-  ui->heave_position->setText("0");
-  ui->yaw_position->setText("0");
-  ui->roll_position->setText("0");
-  ui->pitch_position->setText("0");
-
-  ui->surge_speed->setText("0");
-  ui->sway_speed->setText("0");
-  ui->heave_speed->setText("0");
-  ui->yaw_speed->setText("0");
-  ui->roll_speed->setText("0");
-  ui->pitch_speed->setText("0");
-
-  ui->surge_time->setText("0");
-  ui->sway_time->setText("0");
-  ui->heave_time->setText("0");
-  ui->yaw_time->setText("0");
-  ui->roll_time->setText("0");
-  ui->pitch_time->setText("0");
-
+  this->reset_parameters();
   ui->surface_mode_rb->setCheckable(true);
   ui->hover_mode_rb->setCheckable(true);
   ui->movement_mode_rb->setCheckable(true);
@@ -37,16 +16,8 @@ MoveCommander::MoveCommander(ros::NodeHandle _nh, QWidget *parent)
   ui->hover_mode_rb->setChecked(false);
   ui->movement_mode_rb->setChecked(false);
 
-  ui->surface_endmode_rb->setCheckable(true);
-  ui->hover_endmode_rb->setCheckable(true);
-  ui->movement_endmode_rb->setCheckable(true);
-
-  ui->surface_endmode_rb->setChecked(false);
-  ui->hover_endmode_rb->setChecked(false);
-  ui->movement_endmode_rb->setChecked(false);
-
-  move_cmd_sub = nh.advertise<hammerhead_control::MoveCmd>("/move_cmd", 100);
-  mode_sub = nh.advertise<std_msgs::UInt8>("/set_mode", 10, true);
+  move_cmd_sub = nh.advertise<hammerhead_control::MoveCmd>("move_cmd", 100);
+  mode_sub = nh.advertise<std_msgs::UInt8>("set_mode", 10, true);
 
   connect(ui->addCmd_button, SIGNAL(pressed()), this,
           SLOT(publish_move_command()));
@@ -60,6 +31,7 @@ MoveCommander::MoveCommander(ros::NodeHandle _nh, QWidget *parent)
   connect(ui->hover_endmode_rb, SIGNAL(isChecked()), this, SLOT(set_endmode()));
   connect(ui->movement_endmode_rb, SIGNAL(isChecked()), this,
           SLOT(set_endmode()));
+  connect(ui->reset_bt, SIGNAL(pressed()), this, SLOT(reset_parameters()));
 }
 
 MoveCommander::~MoveCommander() { delete ui; }
@@ -105,7 +77,6 @@ void MoveCommander::publish_move_command() {
   }
 
   move_cmd.mode_after_last_cmd = endmode;
-  move_cmd.isAbsolute = is_absolute;
   move_cmd_sub.publish(move_cmd);
 }
 
@@ -145,4 +116,34 @@ void MoveCommander::set_endmode() {
     ui->hover_endmode_rb->setChecked(false);
     ui->surface_endmode_rb->setChecked(false);
   }
+}
+
+void MoveCommander::reset_parameters() {
+  ui->surge_position->setText("0");
+  ui->sway_position->setText("0");
+  ui->heave_position->setText("0");
+  ui->yaw_position->setText("0");
+  ui->roll_position->setText("0");
+  ui->pitch_position->setText("0");
+
+  ui->surge_speed->setText("0");
+  ui->sway_speed->setText("0");
+  ui->heave_speed->setText("0");
+  ui->yaw_speed->setText("0");
+  ui->roll_speed->setText("0");
+  ui->pitch_speed->setText("0");
+
+  ui->surge_time->setText("0");
+  ui->sway_time->setText("0");
+  ui->heave_time->setText("0");
+  ui->yaw_time->setText("0");
+  ui->roll_time->setText("0");
+  ui->pitch_time->setText("0");
+  ui->surface_endmode_rb->setCheckable(true);
+  ui->hover_endmode_rb->setCheckable(true);
+  ui->movement_endmode_rb->setCheckable(true);
+
+  ui->surface_endmode_rb->setChecked(false);
+  ui->hover_endmode_rb->setChecked(false);
+  ui->movement_endmode_rb->setChecked(false);
 }

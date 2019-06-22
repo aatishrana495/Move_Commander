@@ -51,6 +51,7 @@ private slots:
   void set_hover_command();
   void set_movement_command();
   void set_endmode();
+  void reset_parameters();
 };
 
 #endif // MOVE_COMMANDER_H

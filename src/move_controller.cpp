@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
   QApplication a(argc, argv);
   MoveCommander w(nh);
   w.show();
-  ros::Rate rate(30);
+  ros::Rate rate(15);
   while (ros::ok() && w.isVisible()) {
     ros::spinOnce();
     rate.sleep();
