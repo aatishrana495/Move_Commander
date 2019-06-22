@@ -16,20 +16,20 @@ MoveCommander::MoveCommander(ros::NodeHandle _nh, QWidget *parent)
   ui->hover_mode_rb->setChecked(false);
   ui->movement_mode_rb->setChecked(false);
 
-  move_cmd_sub = nh.advertise<hammerhead_control::MoveCmd>("move_cmd", 100);
-  mode_sub = nh.advertise<std_msgs::UInt8>("set_mode", 10, true);
+  move_cmd_pub = nh.advertise<hammerhead_control::MoveCmd>("/move_cmd", 100);
+  mode_pub = nh.advertise<std_msgs::UInt8>("/set_mode", 1);
 
   connect(ui->addCmd_button, SIGNAL(pressed()), this,
           SLOT(publish_move_command()));
-  connect(ui->surface_mode_rb, SIGNAL(isChecked()), this,
+  connect(ui->surface_mode_rb, SIGNAL(clicked()), this,
           SLOT(set_surface_command()));
-  connect(ui->hover_mode_rb, SIGNAL(isChecked()), this, SLOT(set_hover_mode()));
-  connect(ui->movement_mode_rb, SIGNAL(isChecked()), this,
+  connect(ui->hover_mode_rb, SIGNAL(clicked()), this,
+          SLOT(set_hover_command()));
+  connect(ui->movement_mode_rb, SIGNAL(clicked()), this,
           SLOT(set_movement_command()));
-  connect(ui->surface_endmode_rb, SIGNAL(isChecked()), this,
-          SLOT(set_endmode()));
-  connect(ui->hover_endmode_rb, SIGNAL(isChecked()), this, SLOT(set_endmode()));
-  connect(ui->movement_endmode_rb, SIGNAL(isChecked()), this,
+  connect(ui->surface_endmode_rb, SIGNAL(clicked()), this, SLOT(set_endmode()));
+  connect(ui->hover_endmode_rb, SIGNAL(clicked()), this, SLOT(set_endmode()));
+  connect(ui->movement_endmode_rb, SIGNAL(clicked()), this,
           SLOT(set_endmode()));
   connect(ui->reset_bt, SIGNAL(pressed()), this, SLOT(reset_parameters()));
 }
@@ -38,6 +38,7 @@ MoveCommander::~MoveCommander() { delete ui; }
 
 void MoveCommander::publish_move_command() {
 
+  mode_sub.publish(set_mode);
   move_cmd.surge =
       std::atoi(((ui->surge_position->toPlainText()).toStdString()).c_str());
   move_cmd.surge_speed =
@@ -77,27 +78,27 @@ void MoveCommander::publish_move_command() {
   }
 
   move_cmd.mode_after_last_cmd = endmode;
-  move_cmd_sub.publish(move_cmd);
+  move_cmd_pub.publish(move_cmd);
 }
 
 void MoveCommander::set_surface_command() {
   set_mode.data = 0;
   ui->hover_mode_rb->setChecked(false);
   ui->movement_mode_rb->setChecked(false);
-  mode_sub.publish(set_mode);
+  mode_pub.publish(set_mode);
 }
 void MoveCommander::set_hover_command() {
   set_mode.data = 1;
   ui->surface_mode_rb->setChecked(false);
   ui->movement_mode_rb->setChecked(false);
-  mode_sub.publish(set_mode);
+  mode_pub.publish(set_mode);
 }
 void MoveCommander::set_movement_command() {
   set_mode.data = 2;
   ui->hover_mode_rb->setChecked(false);
   ui->surface_mode_rb->setChecked(false);
-  mode_sub.publish(set_mode);
-  publish_move_command();
+  mode_pub.publish(set_mode);
+  this->publish_move_command();
 }
 
 void MoveCommander::set_endmode() {

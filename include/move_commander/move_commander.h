@@ -37,8 +37,8 @@ private:
   ros::NodeHandle nh;
 
   ros::Publisher in_sub;
-  ros::Publisher mode_sub;
-  ros::Publisher move_cmd_sub;
+  ros::Publisher mode_pub;
+  ros::Publisher move_cmd_pub;
 
   int end_mode_cmd, endmode, is_absolute;
 
