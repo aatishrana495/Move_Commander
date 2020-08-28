@@ -38,7 +38,7 @@ MoveCommander::~MoveCommander() { delete ui; }
 
 void MoveCommander::publish_move_command() {
 
-  mode_sub.publish(set_mode);
+  mode_pub.publish(set_mode);
   move_cmd.surge =
       std::atoi(((ui->surge_position->toPlainText()).toStdString()).c_str());
   move_cmd.surge_speed =
